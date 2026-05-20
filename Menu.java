@@ -22,7 +22,7 @@ public class Menu {
         switch (op) {
             case 1 -> registroUsuario(lg);
             case 2 -> lg.listarUsuarios();
-            case 3 -> System.out.println();
+            case 3 -> buscadorUsuario(lg);
             case 4 -> System.out.println();
             case 5 -> System.out.println();
             case 6 -> salir = false;
@@ -45,5 +45,12 @@ public class Menu {
     lg.agregarUsuario(id, nombre, correo);
     System.out.println("Usuario registrado exitosamente :)");
     
+   }
+
+   public void buscadorUsuario(Logica lg){
+    System.out.print("Ingrese el ID del usuario: ");
+    int id =sc.nextInt();
+    String usuarioEncontrado = lg.buscarUsuario(id);
+    System.out.println(usuarioEncontrado);
    }
 }

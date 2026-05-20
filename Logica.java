@@ -7,9 +7,18 @@ public class Logica {
     }
     public void listarUsuarios(){
         for(Persona p: usuarios){
-            System.out.println(p.getId()+" | "+p.getNombre()+" | "+p.getCorreo());
+            System.out.println("ID: "+p.getId()+" | Nombre: "+p.getNombre()+" | Correo: "+p.getCorreo());
         }
         
+    }
+
+    public String buscarUsuario(int id){
+        for(Persona p: usuarios){
+            if(id == p.getId()){
+                return "ID: "+p.getId()+" | Nombre: "+p.getNombre()+" | Correo: "+p.getCorreo();
+            }
+        }
+        return "usuario no encontrado";
     }
 
 
