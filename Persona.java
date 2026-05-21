@@ -20,4 +20,14 @@ public class Persona {
     public String getCorreo(){
         return correo_usuario;
     }
+
+    public String setNombre(String nombre){
+        this.nombre = nombre;
+        return nombre;
+    }
+
+    public String setCorreo(String correo){
+        this.correo_usuario = correo;
+        return correo;
+    }
 }

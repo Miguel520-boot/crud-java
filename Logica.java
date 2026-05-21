@@ -21,7 +21,15 @@ public class Logica {
         return "usuario no encontrado";
     }
 
-
-
+    public void actualizarUser(int id, int op, String nuevoNombre, String nuevoCorreo){
+        for(Persona p: usuarios){
+            if(id == p.getId() && op == 1){
+                p.setNombre(nuevoNombre);
+            }else if(id == p.getId() && op == 2){
+                p.setCorreo(nuevoCorreo);
+            }
+        }
+        System.out.println("datos actualizados");
+    }
 
 }

@@ -15,7 +15,7 @@ public class Menu {
         System.out.println("Buscar usuario..........[3]");
         System.out.println("Actualizar usuario......[4]");
         System.out.println("Eliminar usuario........[5]");
-        System.out.println("Salir del sistema.......[6]");
+        System.out.println("Salir...................[6]");
         System.out.print("Ingrese la opcion que desee: ");
         op = sc.nextInt();
 
@@ -23,7 +23,7 @@ public class Menu {
             case 1 -> registroUsuario(lg);
             case 2 -> lg.listarUsuarios();
             case 3 -> buscadorUsuario(lg);
-            case 4 -> System.out.println();
+            case 4 -> actualizarUsuario(lg);
             case 5 -> System.out.println();
             case 6 -> salir = false;
         
@@ -52,5 +52,28 @@ public class Menu {
     int id =sc.nextInt();
     String usuarioEncontrado = lg.buscarUsuario(id);
     System.out.println(usuarioEncontrado);
+   }
+
+   public void actualizarUsuario(Logica lg){
+    sc.nextLine();
+     String nuevoNombre = "";
+     String nuevoCorreo ="";
+
+    System.out.print("Ingrese el id: ");
+    int id = sc.nextInt();
+    System.out.println("Nombre......[1]");
+    System.out.println("Correo......[2]");
+    System.out.print("Elija que desea actualizar: ");
+    int op = sc.nextInt();
+
+    if(op == 1){
+      System.out.print("Ingrese su nombre: ");
+        nuevoNombre = sc.nextLine();
+    }else if(op == 2){
+      System.out.print("Ingrese su correo: ");
+        nuevoCorreo = sc.nextLine();
+    }
+   
+    lg.actualizarUser(id, op, nuevoNombre, nuevoCorreo);
    }
 }
