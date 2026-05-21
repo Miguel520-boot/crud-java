@@ -32,4 +32,13 @@ public class Logica {
         System.out.println("datos actualizados");
     }
 
+    public void eliminarUsuario(int id){
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i).getId() == id){
+                usuarios.remove(i);
+                break;
+            }
+        }
+    }
+
 }

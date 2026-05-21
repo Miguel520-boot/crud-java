@@ -3,7 +3,8 @@ public class Menu {
 
     Scanner sc = new Scanner(System.in);
     Random rd = new Random();
-
+     private String nuevoNombre;
+     private String nuevoCorreo;
 
     public void mostrarMenu(){
         Logica lg = new Logica();
@@ -24,7 +25,7 @@ public class Menu {
             case 2 -> lg.listarUsuarios();
             case 3 -> buscadorUsuario(lg);
             case 4 -> actualizarUsuario(lg);
-            case 5 -> System.out.println();
+            case 5 -> borrarUsuario(lg);
             case 6 -> salir = false;
         
             default -> System.out.println("Opcion invalida no se encuentra en el menu :(");
@@ -55,25 +56,27 @@ public class Menu {
    }
 
    public void actualizarUsuario(Logica lg){
-    sc.nextLine();
-     String nuevoNombre = "";
-     String nuevoCorreo ="";
+        System.out.print("Ingrese el id: ");
+        int id = sc.nextInt();
+        System.out.println("Nombre......[1]");
+        System.out.println("Correo......[2]");
+        System.out.print("Elija que desea actualizar: ");
+        int op = sc.nextInt();
+        sc.nextLine();
+        if(op == 1){
+          System.out.print("Ingrese su nombre: ");
+          nuevoNombre = sc.nextLine();
+       }else if(op == 2){
+          System.out.print("Ingrese su correo: ");
+            nuevoCorreo = sc.nextLine();
+        } 
+      lg.actualizarUser(id, op, nuevoNombre, nuevoCorreo);
+   }
 
-    System.out.print("Ingrese el id: ");
-    int id = sc.nextInt();
-    System.out.println("Nombre......[1]");
-    System.out.println("Correo......[2]");
-    System.out.print("Elija que desea actualizar: ");
-    int op = sc.nextInt();
-
-    if(op == 1){
-      System.out.print("Ingrese su nombre: ");
-        nuevoNombre = sc.nextLine();
-    }else if(op == 2){
-      System.out.print("Ingrese su correo: ");
-        nuevoCorreo = sc.nextLine();
-    }
-   
-    lg.actualizarUser(id, op, nuevoNombre, nuevoCorreo);
+   public void borrarUsuario(Logica lg){
+        System.out.print("Ingrese el id del usuario: ");
+        int id = sc.nextInt();
+        lg.eliminarUsuario(id);
+        System.out.println("Usuarios ha sido eliminado");
    }
 }
